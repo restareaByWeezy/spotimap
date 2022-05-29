@@ -1,7 +1,8 @@
 @use '/src/styles/constants/colors';
 
-.app {
+.appWrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

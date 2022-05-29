@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css');
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../../font/Gotham-Black.otf');
+}
 
 body,
 button,
 input,
 textarea {
-  font-family: 'Spoqa Han Sans Neo', Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei', sans-serif;
+  font-family: 'Gotham', Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei', sans-serif;
   font-feature-settings: 'tnum';
 }
 
