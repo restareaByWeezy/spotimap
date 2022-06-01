@@ -1,6 +1,5 @@
 import axios from 'axios'
 import qs from 'qs'
-import { searchTextAtom } from 'states/atom'
 import Cookies from 'universal-cookie'
 
 const baseUrl = 'https://api.spotify.com/v1'
@@ -40,27 +39,22 @@ const getAuth = async () => {
   return auth
 }
 
-export const getTracks = async () => {
+export const getTracks = async (text: string) => {
   const auth = await getAuth()
 
-  return axios
-    .get(`${baseUrl}/search`, {
-      headers: {
-        Authorization: `Bearer ${auth}`,
-      },
-      params: {
-        q: 'avicii',
-        type: 'track',
-        market: 'es',
-        limit: 20,
-        offset: 5,
-      },
-    })
-    .then((response) => {
-      const tracks: [] = response.data.tracks.items
-      return tracks
-    })
-    .catch((e) => {
-      console.log(e)
-    })
+  const res = await axios.get(`${baseUrl}/search`, {
+    headers: {
+      Authorization: `Bearer ${auth}`,
+    },
+    params: {
+      q: `${text === '' ? 'avicii' : text}`,
+      type: 'track',
+      market: 'es',
+      limit: 20,
+      offset: 5,
+    },
+  })
+  const tracks: [] = await res.data.tracks.items
+  console.log(tracks)
+  return tracks
 }

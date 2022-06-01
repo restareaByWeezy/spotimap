@@ -1,4 +1,4 @@
-interface Item {
+interface RootObject {
   album: Album
   artists: Artist[]
   disc_number: number

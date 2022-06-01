@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  background-color: cadetblue;
+
+  input {
+    background-color: white;
+    margin: 5px;
+  }
+}
