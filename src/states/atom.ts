@@ -1,4 +1,5 @@
 import { atom } from 'recoil'
+import store from 'store'
 
 export const trackDataAtom = atom({
   key: '#trackData',
@@ -22,5 +23,8 @@ export const trackInfoAtom = atom<SpotifyInfo>({
 
 export const markerInfoAtom = atom<{ spotifyInfo: SpotifyInfo; lat: number; lng: number }[]>({
   key: '#markerInfo',
-  default: [{ spotifyInfo: { img: '', artist: '', title: '' }, lat: 33, lng: 33 }],
+  default: store.get('marker'),
 })
+
+export const spotifyAtoms = { trackDataAtom, searchTextAtom, trackInfoAtom }
+export const mapAtoms = { positionAtom, markerInfoAtom }

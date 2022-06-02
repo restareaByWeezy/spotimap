@@ -55,6 +55,5 @@ export const getTracks = async (text: string) => {
     },
   })
   const tracks: [] = await res.data.tracks.items
-  console.log(tracks)
   return tracks
 }

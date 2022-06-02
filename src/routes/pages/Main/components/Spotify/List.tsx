@@ -8,20 +8,19 @@ interface Props {
 }
 
 const List = ({ tracks }: Props) => {
-  const [trackInfo, setTrackInfo] = useRecoilState(trackInfoAtom)
+  const [, setTrackInfo] = useRecoilState(trackInfoAtom)
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     const { dataset } = e.currentTarget
     const spotifyInfo: SpotifyInfo = { img: dataset.img, artist: dataset.artist, title: dataset.title }
     if (spotifyInfo) {
       setTrackInfo(spotifyInfo)
-      console.log(spotifyInfo)
     }
   }
 
   const listMap = tracks.map((track) => {
     return (
-      <li key={`${track.id}`}>
+      <li key={track.id}>
         <div
           role='button'
           data-img={track.album.images[2].url}

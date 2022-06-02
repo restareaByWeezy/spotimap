@@ -4,10 +4,20 @@
   width: 100vw;
   height: 600px;
 
-  .searchWrapper {
+  .infoWrapper {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 500px;
+
+    .spotifyWrapper {
+      width: 30%;
+      height: 100%;
+    }
+
+    .mapWrapper {
+      width: 70%;
+      height: 100%;
+    }
   }
 }
