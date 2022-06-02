@@ -15,7 +15,12 @@ export const positionAtom = atom({
   default: { lat: 0, lng: 0 },
 })
 
-export const trackIdAtom = atom<string | undefined>({
+export const trackInfoAtom = atom<SpotifyInfo>({
   key: '#trackIdAtom',
-  default: '',
+  default: {},
+})
+
+export const markerInfoAtom = atom<{ spotifyInfo: SpotifyInfo; lat: number; lng: number }[]>({
+  key: '#markerInfo',
+  default: [{ spotifyInfo: { img: '', artist: '', title: '' }, lat: 33, lng: 33 }],
 })

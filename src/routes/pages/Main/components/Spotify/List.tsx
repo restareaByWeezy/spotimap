@@ -1,6 +1,6 @@
-import { MouseEvent, useState } from 'react'
+import { MouseEvent } from 'react'
 import { useRecoilState } from 'recoil'
-import { trackIdAtom } from 'states/atom'
+import { trackInfoAtom } from 'states/atom'
 import styles from './List.module.scss'
 
 interface Props {
@@ -8,17 +8,28 @@ interface Props {
 }
 
 const List = ({ tracks }: Props) => {
-  const [trackId, setTrackId] = useRecoilState(trackIdAtom)
+  const [trackInfo, setTrackInfo] = useRecoilState(trackInfoAtom)
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-    const spotifyId: string | undefined = e.currentTarget.dataset.trackid
-    setTrackId(spotifyId)
+    const { dataset } = e.currentTarget
+    const spotifyInfo: SpotifyInfo = { img: dataset.img, artist: dataset.artist, title: dataset.title }
+    if (spotifyInfo) {
+      setTrackInfo(spotifyInfo)
+      console.log(spotifyInfo)
+    }
   }
 
   const listMap = tracks.map((track) => {
     return (
       <li key={`${track.id}`}>
-        <div role='button' data-trackid={track.id} onClick={handleClick} tabIndex={0}>
+        <div
+          role='button'
+          data-img={track.album.images[2].url}
+          data-artist={track.artists[0].name}
+          data-title={track.name}
+          onClick={handleClick}
+          tabIndex={0}
+        >
           <img src={`${track.album.images[2].url}`} alt='img' />
           <div>
             <p>{track.artists[0].name}</p>

@@ -55,3 +55,9 @@ interface Artist {
 interface Externalurls {
   spotify: string
 }
+
+interface SpotifyInfo {
+  img?: string
+  artist?: string
+  title?: string
+}

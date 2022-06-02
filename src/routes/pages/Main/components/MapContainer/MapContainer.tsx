@@ -1,11 +1,25 @@
-import { useState } from 'react'
 import { Map, MapMarker } from 'react-kakao-maps-sdk'
-import { useRecoilState } from 'recoil'
-import { positionAtom } from 'states/atom'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { markerInfoAtom, positionAtom } from 'states/atom'
 import styles from './MapContainer.module.scss'
 
 const MapContainer = () => {
   const [position, setPosition] = useRecoilState(positionAtom)
+  const markerInfo = useRecoilValue(markerInfoAtom)
+
+  console.log(markerInfo)
+
+  const markerList = markerInfo.map((marker) => {
+    console.log(markerInfo)
+
+    return marker.spotifyInfo !== '' ? (
+      <MapMarker key={marker.spotifyInfo.img} position={{ lat: marker.lat, lng: marker.lng }}>
+        <div style={{ color: '#000' }}>{marker.spotifyInfo.artist}</div>
+      </MapMarker>
+    ) : (
+      ''
+    )
+  })
 
   return (
     <div className={styles.container}>
@@ -25,6 +39,7 @@ const MapContainer = () => {
         <MapMarker position={{ lat: 33.450701, lng: 126.570667 }}>
           <div style={{ color: '#000' }}>Hello World!</div>
         </MapMarker>
+        {/* {markerList} */}
       </Map>
     </div>
   )
