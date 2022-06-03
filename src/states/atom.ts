@@ -23,7 +23,7 @@ export const trackInfoAtom = atom<SpotifyInfo>({
 
 export const markerInfoAtom = atom<{ spotifyInfo: SpotifyInfo; lat: number; lng: number }[]>({
   key: '#markerInfo',
-  default: store.get('marker'),
+  default: store.get('marker') ? store.get('marker') : [],
 })
 
 export const spotifyAtoms = { trackDataAtom, searchTextAtom, trackInfoAtom }

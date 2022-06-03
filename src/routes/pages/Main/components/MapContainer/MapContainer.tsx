@@ -31,7 +31,7 @@ const MapContainer = () => {
       }}
     >
       {position && <MapMarker position={position} />}
-      {markerList}
+      {markerInfo.length ? markerList : ''}
     </Map>
   )
 }
