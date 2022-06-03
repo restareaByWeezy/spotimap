@@ -1,12 +1,32 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   width: 100%;
-  height: 400px;
-  background-color: cadetblue;
+  height: 85px;
+  padding: 5px;
+  background-color: #000000;
+  color: white;
+  font-size: 18px;
 
-  input {
-    background-color: white;
-    margin: 5px;
+  p {
+    display: -webkit-box;
+    width: 100%;
+    height: 50px;
+    text-align: left;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+
+  button {
+    width: 100px;
+    height: 30px;
+    box-sizing: content-box;
+    background-color: #ffcdd3;
+    color: #000000;
+    font-weight: lighter;
+    border-radius: 500px;
+    padding: 2px 5px;
+    margin-left: auto;
   }
 }

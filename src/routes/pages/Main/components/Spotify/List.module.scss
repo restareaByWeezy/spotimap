@@ -1,4 +1,24 @@
 .container {
   display: flex;
   flex-direction: column;
+
+  li {
+    padding: 5px 3px;
+  }
+
+  .trackInfo {
+    display: flex;
+    flex-direction: row;
+
+    .detail {
+      padding-left: 5px;
+      .title {
+        font-size: 20px;
+      }
+      .trackName {
+        padding-top: 5px;
+        font-size: 15px;
+      }
+    }
+  }
 }

@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+
+  button {
+    width: 53px;
+    height: 25px;
+    margin-left: auto;
+    padding: 2px 5px;
+    box-sizing: content-box;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 15px;
+    border-radius: 500px;
+  }
+}

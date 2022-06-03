@@ -39,25 +39,16 @@
       "last 1 safari version"
     ]
   },
-  "resolutions": {
-    "react-i18next": ">=11.16.4"
-  },
   "dependencies": {
     "@react-google-maps/api": "^2.11.8",
-    "@reduxjs/toolkit": "^1.8.1",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.2",
-    "lodash": "^4.17.21",
     "qs": "^6.10.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-error-boundary": "^3.1.4",
     "react-kakao-maps-sdk": "^1.1.0",
-    "react-query": "^3.39.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
@@ -65,8 +56,6 @@
     "recoil": "^0.7.3-alpha.2",
     "store": "^2.0.12",
     "universal-cookie": "^4.0.4",
-    "victory": "^36.4.0",
-    "victory-core": "^36.4.0",
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {

@@ -16,9 +16,9 @@ const AddMarker = () => {
 
   return (
     <div className={styles.container}>
-      <p>Selected song:{trackInfo.title} </p>
+      <p>Selected song: {trackInfo.title} </p>
       <button type='button' onClick={handleClick}>
-        submit
+        Add Marker
       </button>
     </div>
   )

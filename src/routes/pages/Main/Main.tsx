@@ -9,14 +9,12 @@ const Main = () => {
     <div className={styles.container}>
       <div className={styles.infoWrapper}>
         <div className={styles.spotifyWrapper}>
+          <AddMarker />
           <Spotify />
         </div>
         <div className={styles.mapWrapper}>
           <MapContainer />
         </div>
-      </div>
-      <div className={styles.formWrapper}>
-        <AddMarker />
       </div>
     </div>
   )

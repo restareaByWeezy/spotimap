@@ -22,6 +22,7 @@ const List = ({ tracks }: Props) => {
     return (
       <li key={track.id}>
         <div
+          className={styles.trackInfo}
           role='button'
           data-img={track.album.images[2].url}
           data-artist={track.artists[0].name}
@@ -30,9 +31,9 @@ const List = ({ tracks }: Props) => {
           tabIndex={0}
         >
           <img src={`${track.album.images[2].url}`} alt='img' />
-          <div>
-            <p>{track.artists[0].name}</p>
-            <p>{track.name}</p>
+          <div className={styles.detail}>
+            <p className={styles.title}>{track.artists[0].name}</p>
+            <p className={styles.trackName}>{track.name}</p>
           </div>
         </div>
       </li>

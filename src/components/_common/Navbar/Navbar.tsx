@@ -5,8 +5,8 @@ const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
-        <Slogo />
-        <div>Spotimap</div>
+        <Slogo className={styles.Slogo} />
+        Spotimap
       </div>
       <div className={styles.menu}>
         <div className={styles.home}>Home</div>

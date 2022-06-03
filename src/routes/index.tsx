@@ -3,6 +3,7 @@ import Main from './pages/Main/Main'
 import styles from './Routes.module.scss'
 import Navbar from 'components/_common/Navbar/Navbar'
 import Header from 'components/_common/Header/Header'
+import About from './pages/About/About'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Main />} />
+            <Route path='/about' element={<About />} />
           </Routes>
         </BrowserRouter>
       </div>
