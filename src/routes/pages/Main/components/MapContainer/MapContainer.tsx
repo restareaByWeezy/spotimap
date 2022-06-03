@@ -1,17 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Map, MapMarker } from 'react-kakao-maps-sdk'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { markerInfoAtom, positionAtom } from 'states/atom'
+import styles from './MapContinaer.module.scss'
 
 const MapContainer = () => {
   const [position, setPosition] = useRecoilState(positionAtom)
   const markerInfo = useRecoilValue(markerInfoAtom)
+  const [isOpen, setIsOpen] = useState(-1)
 
   const markerList = markerInfo.map((marker, index) => {
     return (
       marker.spotifyInfo !== '' && (
-        <MapMarker key={index} position={{ lat: marker.lat, lng: marker.lng }}>
-          <div style={{ color: '#000' }}>{marker.spotifyInfo.artist}</div>
+        <MapMarker
+          key={index}
+          position={{ lat: marker.lat, lng: marker.lng }}
+          image={{
+            src: `${marker.spotifyInfo.img}`,
+            size: { width: 40, height: 40 },
+          }}
+          clickable
+          onMouseOver={() => setIsOpen(index)}
+          onMouseOut={() => setIsOpen(-1)}
+        >
+          {isOpen === index && (
+            <div className={styles.markerContainer}>
+              <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
+              <div className={styles.detail}>
+                <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
+                <div className={styles.title}>{marker.spotifyInfo.title}</div>
+              </div>
+            </div>
+          )}
         </MapMarker>
       )
     )

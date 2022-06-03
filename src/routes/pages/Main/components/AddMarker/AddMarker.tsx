@@ -9,9 +9,11 @@ const AddMarker = () => {
   const [markerInfo, setMarkerInfo] = useRecoilState(markerInfoAtom)
 
   const handleClick = () => {
-    const tempInfo = [...markerInfo, { spotifyInfo: trackInfo, lat: position.lat, lng: position.lng }]
-    setMarkerInfo(tempInfo)
-    store.set('marker', tempInfo)
+    if (position.lat !== 0 && Object.keys(trackInfo).length !== 0) {
+      const tempInfo = [...markerInfo, { spotifyInfo: trackInfo, lat: position.lat, lng: position.lng }]
+      setMarkerInfo(tempInfo)
+      store.set('marker', tempInfo)
+    }
   }
 
   return (
