@@ -1,15 +1,19 @@
 import { Slogo } from 'assets/svgs'
+import { NavLink } from 'react-router-dom'
 import styles from './Navbar.module.scss'
 
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>
+      <NavLink to='/' className={styles.logo}>
         <Slogo className={styles.Slogo} />
         Spotimap
-      </div>
+      </NavLink>
+
       <div className={styles.menu}>
-        <div className={styles.home}>Home</div>
+        <NavLink to='/' className={styles.home}>
+          Home
+        </NavLink>
       </div>
     </div>
   )

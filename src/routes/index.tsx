@@ -11,12 +11,10 @@ const App = () => {
       <Navbar />
       <Header />
       <div className={styles.app}>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Main />} />
-            <Route path='/about' element={<About />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Main />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
       </div>
     </div>
   )
