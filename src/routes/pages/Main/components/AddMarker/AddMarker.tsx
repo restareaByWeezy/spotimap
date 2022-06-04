@@ -18,10 +18,15 @@ const AddMarker = () => {
 
   return (
     <div className={styles.container}>
-      <p>Selected song: {trackInfo.title} </p>
-      <button type='button' onClick={handleClick}>
-        Add Marker
-      </button>
+      <div className={styles.textWrap}>
+        <p className={styles.title}>Selected song:</p>
+        <p>{trackInfo.title} </p>
+      </div>
+      <div className={styles.buttonWrap}>
+        <button type='button' onClick={handleClick}>
+          Add Marker
+        </button>
+      </div>
     </div>
   )
 }

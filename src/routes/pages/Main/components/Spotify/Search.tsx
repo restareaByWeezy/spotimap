@@ -22,7 +22,7 @@ const Search = () => {
   return (
     <div className={styles.container}>
       <form action='submit' onSubmit={handleSubmit}>
-        <input type='text' onChange={handleText} value={text} />
+        <input type='text' onChange={handleText} value={text} placeholder='Search Tracks' />
         <button type='button' onClick={onClick}>
           search
         </button>

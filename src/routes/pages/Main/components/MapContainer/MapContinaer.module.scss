@@ -20,4 +20,12 @@
       font-size: 15px;
     }
   }
+
+  button {
+    width: fit-content;
+    .trashIcon {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }

@@ -1,25 +1,31 @@
+@use '/src/styles/constants/colors';
+
 .container {
   display: flex;
   flex-direction: column;
 
   li {
     padding: 5px 3px;
-  }
+    cursor: pointer;
 
-  .trackInfo {
-    display: flex;
-    flex-direction: row;
+    .trackInfo {
+      display: flex;
+      flex-direction: row;
 
-    .detail {
-      padding-left: 5px;
-      .title {
-        font-size: 20px;
-        font-weight: 500;
-      }
-      .trackName {
-        padding-top: 5px;
-        font-size: 15px;
+      .detail {
+        padding-left: 5px;
+        .title {
+          font-size: 20px;
+          font-weight: 500;
+        }
+        .trackName {
+          padding-top: 5px;
+          font-size: 15px;
+        }
       }
     }
+  }
+  li:hover {
+    background-color: colors.$SDEEPPINK;
   }
 }

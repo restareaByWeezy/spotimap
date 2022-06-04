@@ -22,7 +22,7 @@ const List = ({ tracks }: Props) => {
 
   const listMap = tracks.map((track) => {
     return (
-      <li key={track.id}>
+      <li key={track.id} className={styles.track}>
         <div
           className={styles.trackInfo}
           role='button'

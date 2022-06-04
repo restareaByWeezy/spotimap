@@ -1,13 +1,25 @@
-import React, { useState } from 'react'
+import React, { MouseEvent, useEffect, useState } from 'react'
+import store from 'store'
 import { Map, MapMarker } from 'react-kakao-maps-sdk'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { markerInfoAtom, positionAtom } from 'states/atom'
 import styles from './MapContinaer.module.scss'
+import { Trash } from 'assets/svgs'
 
 const MapContainer = () => {
   const [position, setPosition] = useRecoilState(positionAtom)
-  const markerInfo = useRecoilValue(markerInfoAtom)
+  const [markerInfo, setMarkerInfo] = useRecoilState(markerInfoAtom)
   const [isOpen, setIsOpen] = useState(-1)
+
+  const handleErase = (e: MouseEvent<HTMLElement>) => {
+    const clickedIdx = Number(e.currentTarget.dataset.index)
+    const erasedList = markerInfo.filter((item, idx) => idx !== clickedIdx)
+    setMarkerInfo(erasedList)
+  }
+
+  useEffect(() => {
+    store.set('marker', markerInfo)
+  }, [markerInfo])
 
   const markerList = markerInfo.map((marker, index) => {
     return (
@@ -23,15 +35,18 @@ const MapContainer = () => {
           onMouseOver={() => setIsOpen(index)}
           onMouseOut={() => setIsOpen(-1)}
         >
-          {isOpen === index && (
-            <div className={styles.markerContainer}>
-              <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
-              <div className={styles.detail}>
-                <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
-                <div className={styles.title}>{marker.spotifyInfo.title}</div>
-              </div>
+          {/* {isOpen === index && ( */}
+          <div className={styles.markerContainer}>
+            <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
+            <div className={styles.detail}>
+              <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
+              <div className={styles.title}>{marker.spotifyInfo.title}</div>
             </div>
-          )}
+            <button data-index={index} type='button' onClick={handleErase}>
+              <Trash className={styles.trashIcon} />
+            </button>
+          </div>
+          {/* )} */}
         </MapMarker>
       )
     )
