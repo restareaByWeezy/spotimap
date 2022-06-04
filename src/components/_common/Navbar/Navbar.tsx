@@ -1,6 +1,7 @@
-import { Slogo } from 'assets/svgs'
-import Player from 'components/Player/Player'
 import { NavLink } from 'react-router-dom'
+
+import { Slogo } from 'assets/svgs'
+
 import styles from './Navbar.module.scss'
 
 const Navbar = () => {
@@ -10,12 +11,10 @@ const Navbar = () => {
         <Slogo className={styles.Slogo} />
         <span>Spotimap</span>
       </NavLink>
-
       <div className={styles.menu}>
         <NavLink to='/' className={styles.home}>
           Home
         </NavLink>
-        <Player />
       </div>
     </div>
   )

@@ -1,7 +1,9 @@
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { positionAtom, trackInfoAtom, markerInfoAtom } from 'states/atom'
-import styles from './AddMarker.module.scss'
 import store from 'store'
+
+import { positionAtom, trackInfoAtom, markerInfoAtom } from 'states/atom'
+
+import styles from './AddMarker.module.scss'
 
 const AddMarker = () => {
   const position = useRecoilValue(positionAtom)

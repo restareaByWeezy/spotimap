@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { useRecoilState } from 'recoil'
+
 import { searchTextAtom } from 'states/atom'
+
 import styles from './Search.module.scss'
 
 const Search = () => {

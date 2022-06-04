@@ -1,10 +1,13 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import store from 'store'
+import { useRecoilState } from 'recoil'
 import { Map, MapMarker } from 'react-kakao-maps-sdk'
-import { useRecoilState, useRecoilValue } from 'recoil'
+
 import { markerInfoAtom, positionAtom } from 'states/atom'
-import styles from './MapContinaer.module.scss'
+
 import { Trash } from 'assets/svgs'
+
+import styles from './MapContinaer.module.scss'
 
 const MapContainer = () => {
   const [position, setPosition] = useRecoilState(positionAtom)
@@ -30,23 +33,24 @@ const MapContainer = () => {
           image={{
             src: `${marker.spotifyInfo.img}`,
             size: { width: 40, height: 40 },
+            options: { shape: 'rect' },
           }}
-          clickable
-          onMouseOver={() => setIsOpen(index)}
-          onMouseOut={() => setIsOpen(-1)}
+          onMouseOver={() => {
+            setIsOpen(index)
+          }}
         >
-          {/* {isOpen === index && ( */}
-          <div className={styles.markerContainer}>
-            <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
-            <div className={styles.detail}>
-              <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
-              <div className={styles.title}>{marker.spotifyInfo.title}</div>
+          {isOpen === index && (
+            <div className={styles.markerContainer}>
+              <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
+              <div className={styles.detail}>
+                <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
+                <div className={styles.title}>{marker.spotifyInfo.title}</div>
+              </div>
+              <button data-index={index} type='button' onClick={handleErase}>
+                <Trash className={styles.trashIcon} />
+              </button>
             </div>
-            <button data-index={index} type='button' onClick={handleErase}>
-              <Trash className={styles.trashIcon} />
-            </button>
-          </div>
-          {/* )} */}
+          )}
         </MapMarker>
       )
     )
@@ -54,7 +58,7 @@ const MapContainer = () => {
 
   return (
     <Map
-      center={{ lat: 33.450701, lng: 126.570667 }}
+      center={{ lat: 37.55125, lng: 126.98822 }}
       style={{ width: '100%', height: '100%' }}
       onClick={(_t, mouseEvent) => {
         if (mouseEvent.latLng) {

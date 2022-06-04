@@ -1,6 +1,8 @@
 import { MouseEvent } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
+
 import { playUriAtom, trackInfoAtom } from 'states/atom'
+
 import styles from './List.module.scss'
 
 interface Props {

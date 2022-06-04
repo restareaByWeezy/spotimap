@@ -1,6 +1,6 @@
-import AddMarker from './components/AddMarker/AddMarker'
-import MapContainer from './components/MapContainer/MapContainer'
-import Spotify from './components/Spotify/Spotify'
+import AddMarker from 'components/Main/AddMarker/AddMarker'
+import MapContainer from 'components/Main/MapContainer/MapContainer'
+import Spotify from 'components/Main/Spotify/Spotify'
 
 import styles from './Main.module.scss'
 

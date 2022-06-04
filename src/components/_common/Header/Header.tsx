@@ -1,4 +1,5 @@
 import { Slogo } from 'assets/svgs/index'
+
 import styles from './Header.module.scss'
 
 const Header = () => {

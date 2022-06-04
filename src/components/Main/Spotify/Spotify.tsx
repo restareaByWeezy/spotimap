@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
-import { getTracks } from 'services/getSpotifyApi'
-import { searchTextAtom } from 'states/atom'
+
 import List from './List'
 import Search from './Search'
+
+import { searchTextAtom } from 'states/atom'
+
+import { getTracks } from 'services/getSpotifyApi'
+
 import styles from './Spotify.module.scss'
 
 const Spotify = () => {
