@@ -13,7 +13,7 @@ const MapContainer = () => {
     return (
       marker.spotifyInfo !== '' && (
         <MapMarker
-          key={index}
+          key={marker.spotifyInfo.uri}
           position={{ lat: marker.lat, lng: marker.lng }}
           image={{
             src: `${marker.spotifyInfo.img}`,

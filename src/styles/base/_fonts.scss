@@ -3,7 +3,20 @@
 
 @font-face {
   font-family: 'Gotham';
-  src: url('../../font/Gotham-Black.otf'), url('../../font/GothamMedium.ttf'), url('../../font/Gotham-Light.otf');
+  src: local('../../font/GothamMedium.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: local('../../font/Gotham-Black.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: local('../../font/Gotham-Light.otf');
+  font-weight: lighter;
 }
 
 body,

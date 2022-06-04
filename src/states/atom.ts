@@ -26,5 +26,10 @@ export const markerInfoAtom = atom<{ spotifyInfo: SpotifyInfo; lat: number; lng:
   default: store.get('marker') ? store.get('marker') : [],
 })
 
+export const playUriAtom = atom<string>({
+  key: '#playUri',
+  default: '',
+})
+
 export const spotifyAtoms = { trackDataAtom, searchTextAtom, trackInfoAtom }
 export const mapAtoms = { positionAtom, markerInfoAtom }

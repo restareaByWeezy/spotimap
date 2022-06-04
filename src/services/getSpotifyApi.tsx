@@ -6,14 +6,17 @@ const baseUrl = 'https://api.spotify.com/v1'
 
 const cookies = new Cookies()
 
+const scopes = ['user-read-currently-playing', 'user-read-playback-state', 'streaming']
+
 const getAuthorizationToken = async () => {
   return axios
     .post(
       'https://accounts.spotify.com/api/token',
       qs.stringify({
         grant_type: 'client_credentials',
-        client_id: '7b8f9dd7a2464d00a19ec6bb32f3df3f',
-        client_secret: '425afe8a3f754c888f2441d39a65a074',
+        client_id: process.env.REACT_APP_CLIENT_ID,
+        client_secret: process.env.REACT_APP_CLLIENT_SECRET,
+        scope: scopes,
       }),
       {
         headers: {
@@ -28,7 +31,7 @@ const getAuthorizationToken = async () => {
     })
 }
 
-const getAuth = async () => {
+export const getAuth = async () => {
   let auth = cookies.get('auth')
 
   if (!auth) {
@@ -56,4 +59,16 @@ export const getTracks = async (text: string) => {
   })
   const tracks: [] = await res.data.tracks.items
   return tracks
+}
+
+export const getPlayBackToken = async () => {
+  return axios
+    .post(
+      'https://accounts.spotify.com/api/token&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state%20playlist-modify-public%20playlist-modify-private'
+    )
+    .then((response) => {
+      cookies.set('token', response.data.access_token, {
+        maxAge: response.data.expires_in,
+      })
+    })
 }

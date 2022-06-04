@@ -60,4 +60,5 @@ interface SpotifyInfo {
   img?: string
   artist?: string
   title?: string
+  uri?: string
 }

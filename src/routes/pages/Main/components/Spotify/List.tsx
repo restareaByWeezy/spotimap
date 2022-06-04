@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react'
-import { useRecoilState } from 'recoil'
-import { trackInfoAtom } from 'states/atom'
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import { playUriAtom, trackInfoAtom } from 'states/atom'
 import styles from './List.module.scss'
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
 }
 
 const List = ({ tracks }: Props) => {
+  const setPlayUri = useSetRecoilState(playUriAtom)
   const [, setTrackInfo] = useRecoilState(trackInfoAtom)
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -16,6 +17,7 @@ const List = ({ tracks }: Props) => {
     if (spotifyInfo) {
       setTrackInfo(spotifyInfo)
     }
+    dataset.uri && setPlayUri(dataset.uri)
   }
 
   const listMap = tracks.map((track) => {
@@ -27,6 +29,7 @@ const List = ({ tracks }: Props) => {
           data-img={track.album.images[2].url}
           data-artist={track.artists[0].name}
           data-title={track.name}
+          data-uri={track.uri}
           onClick={handleClick}
           tabIndex={0}
         >
