@@ -28,15 +28,15 @@ const MapContainer = () => {
     return (
       marker.spotifyInfo !== '' && (
         <MapMarker
-          key={marker.spotifyInfo.uri}
+          key={marker.spotifyInfo.uri + String(marker.lat)}
           position={{ lat: marker.lat, lng: marker.lng }}
           image={{
             src: `${marker.spotifyInfo.img}`,
             size: { width: 40, height: 40 },
             options: { shape: 'rect' },
           }}
-          onMouseOver={() => {
-            setIsOpen(index)
+          onClick={() => {
+            isOpen === index ? setIsOpen(-1) : setIsOpen(index)
           }}
         >
           {isOpen === index && (

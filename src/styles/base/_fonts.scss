@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
 @font-face {
   font-family: 'Gotham';
@@ -23,7 +22,7 @@ body,
 button,
 input,
 textarea {
-  font-family: 'Gotham', 'Noto Sans KR', sans-serif, Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei';
+  font-family: 'Gotham', sans-serif, Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei';
   font-feature-settings: 'tnum';
 }
 
