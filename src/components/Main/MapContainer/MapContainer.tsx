@@ -75,4 +75,4 @@ const MapContainer = () => {
   )
 }
 
-export default React.memo(MapContainer)
+export default MapContainer
