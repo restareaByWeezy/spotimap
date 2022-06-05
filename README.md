@@ -42,7 +42,8 @@ https://spotimap.vercel.app/
 * kakao map같은 경우 타입스크립트에 어려움을 느껴 라이브러리를 이용하였는데 아직 정형화 되지 않은 라이브러리여서 의문점이 많아 처음으로 이슈도 남겨보고 답도 받게되었습니다.
 -> 참고: [‘클릭한 위치에 마커 표시하기’ undefined 타입 오류 · Issue #20 · JaeSeoKim/react-kakao-maps-sdk · GitHub](https://github.com/JaeSeoKim/react-kakao-maps-sdk/issues/20)
 
-* 지도를 랜더링하는 것이 리소스가 크다고 판단하여 memo에 대해 많이 찾아보고 적용하게 되었습니다.
+*  지도에 마커가 추가될 때마다 매번 지도가 랜더되는데 이 부분에 있어서 지도를 랜더링하는 것이 리소스가 크다고 판단하여 memo를 적용하게 되었습니다. 계속 공부중이지만 깊이 들어가면 어려운 내용들이 많아 추가적인 공부의 필요성을 느꼈습니다. 
+
 -> 참고: [React.memo Deep Dive](https://www.stanhong.com/posts/react-memo-deep-dive) [React 톺아보기 - 02. Intro | Deep Dive Magic Code](https://goidle.github.io/react/in-depth-react-intro/)  [Fix the slow render before you fix the re-render](https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render)  [Why We Memo All the Things - Stefano J. Attardi](https://attardi.org/why-we-memo-all-the-things/)
 
 * map marker의 스타일링이 기본으로 들어가 있는데 라이브러리를 뜯어봐도 해제하는 법을 아직 찾지 못해 조금 더 공부해보고 원하는 스타일로 바꿀 예정입니다.
