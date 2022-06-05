@@ -1,5 +1,13 @@
 @use '/src/styles/constants/colors';
 
+.validationWrap {
+  text-align: right;
+  background-color: colors.$BLACK;
+  color: colors.$SDEEPPINK;
+  font-size: 18px;
+  padding: 5px 5px 0 0;
+}
+
 .container {
   display: flex;
   flex-direction: row;
