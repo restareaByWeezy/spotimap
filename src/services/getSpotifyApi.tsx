@@ -6,8 +6,6 @@ const baseUrl = 'https://api.spotify.com/v1'
 
 const cookies = new Cookies()
 
-const scopes = ['user-read-currently-playing', 'user-read-playback-state', 'streaming']
-
 const getAuthorizationToken = async () => {
   return axios
     .post(
@@ -16,7 +14,6 @@ const getAuthorizationToken = async () => {
         grant_type: 'client_credentials',
         client_id: process.env.REACT_APP_CLIENT_ID,
         client_secret: process.env.REACT_APP_CLLIENT_SECRET,
-        scope: scopes,
       }),
       {
         headers: {

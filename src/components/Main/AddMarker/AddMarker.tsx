@@ -27,23 +27,21 @@ const AddMarker = () => {
   }, [trackInfo, position])
 
   return (
-    <>
-      <div className={styles.validationWrap}>
-        {!hasTrack && <p>Select your Song</p>}
-        {!hasLocation && <p>Specify your place</p>}
+    <div className={styles.container}>
+      <div className={styles.textWrap}>
+        <p className={styles.title}>Selected song:</p>
+        <p>{trackInfo.title} </p>
       </div>
-      <div className={styles.container}>
-        <div className={styles.textWrap}>
-          <p className={styles.title}>Selected song:</p>
-          <p>{trackInfo.title} </p>
+      <div className={styles.buttonWrap}>
+        <div className={styles.validationWrap}>
+          {!hasTrack && <p>Select your Song</p>}
+          {!hasLocation && <p>Specify your place</p>}
         </div>
-        <div className={styles.buttonWrap}>
-          <button type='button' onClick={handleClick}>
-            Add Marker
-          </button>
-        </div>
+        <button type='button' onClick={handleClick}>
+          Add Marker
+        </button>
       </div>
-    </>
+    </div>
   )
 }
 
