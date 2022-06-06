@@ -4,10 +4,10 @@ import styles from './Header.module.scss'
 
 const Header = () => {
   return (
-    <div className={styles.title}>
+    <header className={styles.title}>
       <Slogo className={styles.logo} />
-      <div className={styles.textTitle}>What you heard?</div>
-    </div>
+      <title className={styles.textTitle}>What you heard?</title>
+    </header>
   )
 }
 

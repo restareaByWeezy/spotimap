@@ -18,10 +18,10 @@ const Spotify = () => {
     getTracks(searchText).then((res) => setTracks(res))
   }, [searchText])
   return (
-    <div className={styles.container}>
+    <aside className={styles.container}>
       <Search />
       <List tracks={tracks} />
-    </div>
+    </aside>
   )
 }
 

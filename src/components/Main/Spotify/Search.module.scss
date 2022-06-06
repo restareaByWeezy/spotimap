@@ -26,10 +26,14 @@
       padding: 2px 5px;
       margin: 5px;
       box-sizing: content-box;
-      background-color: colors.$WHITE;
-      color: colors.$GRAY2;
+      background-color: colors.$GRAY2;
+      color: colors.$WHITE;
       border-radius: 500px;
       font-weight: bold;
+
+      &:hover {
+        background-color: colors.$GRAY6;
+      }
     }
   }
 }

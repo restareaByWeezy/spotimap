@@ -6,7 +6,7 @@ import styles from './Navbar.module.scss'
 
 const Navbar = () => {
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <NavLink to='/' className={styles.logo}>
         <Slogo className={styles.Slogo} />
         <span>Spotimap</span>
@@ -16,7 +16,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </div>
-    </div>
+    </nav>
   )
 }
 
