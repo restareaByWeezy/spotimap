@@ -1,5 +1,18 @@
+import styles from './Favorite.module.scss'
+
 const Favorite = () => {
-  return <div>123</div>
+  return (
+    <div className={styles.container}>
+      <aside>123</aside>
+      <div>
+        <div>search</div>
+        <div>current track</div>
+        <ul>
+          <li>track</li>
+        </ul>
+      </div>
+    </div>
+  )
 }
 
 export default Favorite
