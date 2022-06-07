@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className={styles.title}>
       <Slogo className={styles.logo} />
-      <title className={styles.textTitle}>What you heard?</title>
+      <h1 className={styles.textTitle}>What you heard?</h1>
     </header>
   )
 }
