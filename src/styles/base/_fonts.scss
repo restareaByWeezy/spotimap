@@ -1,28 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 @font-face {
-  font-family: 'Gotham';
-  src: local('../../font/GothamMedium.ttf');
+  font-family: 'Circular';
+  src: local('../../font/CircularStd-Medium.otf');
   font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: local('../../font/Gotham-Black.otf');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: local('../../font/Gotham-Light.otf');
-  font-weight: lighter;
 }
 
 body,
 button,
 input,
 textarea {
-  font-family: 'Gotham', sans-serif, Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei';
+  font-family: 'Circular', sans-serif, Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei';
   font-feature-settings: 'tnum';
 }
 
