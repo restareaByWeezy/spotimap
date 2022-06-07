@@ -5,6 +5,7 @@ import Navbar from 'components/_common/Navbar/Navbar'
 import Header from 'components/_common/Header/Header'
 
 import styles from './Routes.module.scss'
+import Favorite from './pages/Favorite/Favorite'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <div className={styles.app}>
         <Routes>
           <Route path='/' element={<Main />} />
+          <Route path='favorite' element={<Favorite />} />
         </Routes>
       </div>
     </div>
