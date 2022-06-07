@@ -25,13 +25,15 @@ const MapContainer = () => {
   }, [markerInfo])
 
   const markerList = markerInfo.map((marker, index) => {
+    const info = marker.spotifyInfo
+
     return (
-      marker.spotifyInfo !== '' && (
+      info !== '' && (
         <MapMarker
-          key={marker.spotifyInfo.uri + String(marker.lat)}
+          key={info.uri + String(marker.lat)}
           position={{ lat: marker.lat, lng: marker.lng }}
           image={{
-            src: `${marker.spotifyInfo.img}`,
+            src: `${info.img}`,
             size: { width: 40, height: 40 },
             options: { shape: 'rect' },
           }}
@@ -42,10 +44,10 @@ const MapContainer = () => {
           {isOpen === index && (
             <CustomOverlayMap position={{ lat: marker.lat, lng: marker.lng }} zIndex={1000} yAnchor={1.65}>
               <div className={styles.markerContainer}>
-                <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
+                <img className={styles.img} src={info.img} alt='img' />
                 <div className={styles.detail}>
-                  <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
-                  <div className={styles.title}>{marker.spotifyInfo.title}</div>
+                  <div className={styles.artist}>{info.artist}</div>
+                  <div className={styles.title}>{info.title}</div>
                 </div>
                 <button data-index={index} type='button' onClick={handleErase}>
                   <Trash className={styles.trashIcon} />
