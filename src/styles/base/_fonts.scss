@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
 @font-face {
   font-family: 'Circular';
   src: local('../../font/CircularStd-Medium.otf');
@@ -10,7 +8,7 @@ body,
 button,
 input,
 textarea {
-  font-family: 'Circular', sans-serif, Inter, Arial, PingFangSC-Regular, 'Microsoft YaHei';
+  font-family: 'Circular', sans-serif, Arial, PingFangSC-Regular, 'Microsoft YaHei';
   font-feature-settings: 'tnum';
 }
 
