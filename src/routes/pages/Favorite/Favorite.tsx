@@ -4,7 +4,7 @@ const Favorite = () => {
   return (
     <div className={styles.container}>
       <aside>123</aside>
-      <div>
+      <div className={styles.listWrapper}>
         <div>search</div>
         <div>current track</div>
         <ul>

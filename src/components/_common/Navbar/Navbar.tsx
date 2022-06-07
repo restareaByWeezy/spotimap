@@ -12,8 +12,11 @@ const Navbar = () => {
         <span>Spotimap</span>
       </NavLink>
       <div className={styles.menu}>
-        <NavLink to='/' className={styles.home}>
+        <NavLink to='/' className={styles.navLink}>
           Home
+        </NavLink>
+        <NavLink to='favorite' className={styles.navLink}>
+          Favorite
         </NavLink>
       </div>
     </nav>

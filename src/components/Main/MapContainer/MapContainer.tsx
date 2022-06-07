@@ -1,7 +1,7 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import store from 'store'
 import { useRecoilState } from 'recoil'
-import { Map, MapMarker } from 'react-kakao-maps-sdk'
+import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk'
 
 import { markerInfoAtom, positionAtom } from 'states/atom'
 
@@ -40,16 +40,18 @@ const MapContainer = () => {
           }}
         >
           {isOpen === index && (
-            <div className={styles.markerContainer}>
-              <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
-              <div className={styles.detail}>
-                <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
-                <div className={styles.title}>{marker.spotifyInfo.title}</div>
+            <CustomOverlayMap position={{ lat: marker.lat, lng: marker.lng }} zIndex={1000} yAnchor={1.65}>
+              <div className={styles.markerContainer}>
+                <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
+                <div className={styles.detail}>
+                  <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
+                  <div className={styles.title}>{marker.spotifyInfo.title}</div>
+                </div>
+                <button data-index={index} type='button' onClick={handleErase}>
+                  <Trash className={styles.trashIcon} />
+                </button>
               </div>
-              <button data-index={index} type='button' onClick={handleErase}>
-                <Trash className={styles.trashIcon} />
-              </button>
-            </div>
+            </CustomOverlayMap>
           )}
         </MapMarker>
       )
@@ -70,7 +72,7 @@ const MapContainer = () => {
       }}
     >
       {position && <MapMarker position={position} />}
-      {markerInfo.length ? markerList : ''}
+      {markerInfo.length && markerList}
     </Map>
   )
 }
