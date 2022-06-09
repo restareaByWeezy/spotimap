@@ -7,7 +7,7 @@ import { markerInfoAtom, positionAtom } from 'states/atom'
 
 import { Trash } from 'assets/svgs'
 
-import styles from './MapContinaer.module.scss'
+import styles from './MapContainer.module.scss'
 
 const MapContainer = () => {
   const [position, setPosition] = useRecoilState(positionAtom)
@@ -61,22 +61,24 @@ const MapContainer = () => {
   })
 
   return (
-    <Map
-      center={{ lat: 37.55125, lng: 126.98822 }}
-      style={{ width: '100%', height: '100%' }}
-      onClick={(_t, mouseEvent) => {
-        if (mouseEvent.latLng) {
-          setPosition({
-            lat: mouseEvent.latLng.getLat(),
-            lng: mouseEvent.latLng.getLng(),
-          })
-        }
-      }}
-    >
-      {position && <MapMarker position={position} />}
-      {markerInfo.length && markerList}
-    </Map>
+    <div className={styles.mapContainer}>
+      <Map
+        center={{ lat: 37.55125, lng: 126.98822 }}
+        style={{ width: '100%', height: '100%' }}
+        onClick={(_t, mouseEvent) => {
+          if (mouseEvent.latLng) {
+            setPosition({
+              lat: mouseEvent.latLng.getLat(),
+              lng: mouseEvent.latLng.getLng(),
+            })
+          }
+        }}
+      >
+        {position && <MapMarker position={position} />}
+        {markerList}
+      </Map>
+    </div>
   )
 }
 
-export default MapContainer
+export default React.memo(MapContainer)
