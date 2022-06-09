@@ -1,13 +1,13 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import store from 'store'
 import { useRecoilState } from 'recoil'
-import { Map, MapMarker } from 'react-kakao-maps-sdk'
+import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk'
 
 import { markerInfoAtom, positionAtom } from 'states/atom'
 
 import { Trash } from 'assets/svgs'
 
-import styles from './MapContinaer.module.scss'
+import styles from './MapContainer.module.scss'
 
 const MapContainer = () => {
   const [position, setPosition] = useRecoilState(positionAtom)
@@ -25,6 +25,7 @@ const MapContainer = () => {
   }, [markerInfo])
 
   const markerList = markerInfo.map((marker, index) => {
+    const info = marker.spotifyInfo
     return (
       marker.spotifyInfo !== '' && (
         <MapMarker
@@ -40,16 +41,18 @@ const MapContainer = () => {
           }}
         >
           {isOpen === index && (
-            <div className={styles.markerContainer}>
-              <img className={styles.img} src={marker.spotifyInfo.img} alt='img' />
-              <div className={styles.detail}>
-                <div className={styles.artist}>{marker.spotifyInfo.artist}</div>
-                <div className={styles.title}>{marker.spotifyInfo.title}</div>
+            <CustomOverlayMap position={{ lat: marker.lat, lng: marker.lng }} zIndex={1000} yAnchor={1.65}>
+              <div className={styles.markerContainer}>
+                <img className={styles.img} src={info.img} alt='img' />
+                <div className={styles.detail}>
+                  <div className={styles.artist}>{info.artist}</div>
+                  <div className={styles.title}>{info.title}</div>
+                </div>
+                <button data-index={index} type='button' onClick={handleErase}>
+                  <Trash className={styles.trashIcon} />
+                </button>
               </div>
-              <button data-index={index} type='button' onClick={handleErase}>
-                <Trash className={styles.trashIcon} />
-              </button>
-            </div>
+            </CustomOverlayMap>
           )}
         </MapMarker>
       )
@@ -57,21 +60,23 @@ const MapContainer = () => {
   })
 
   return (
-    <Map
-      center={{ lat: 37.55125, lng: 126.98822 }}
-      style={{ width: '100%', height: '100%' }}
-      onClick={(_t, mouseEvent) => {
-        if (mouseEvent.latLng) {
-          setPosition({
-            lat: mouseEvent.latLng.getLat(),
-            lng: mouseEvent.latLng.getLng(),
-          })
-        }
-      }}
-    >
-      {position && <MapMarker position={position} />}
-      {markerInfo.length ? markerList : ''}
-    </Map>
+    <div className={styles.mapContainer}>
+      <Map
+        center={{ lat: 37.55125, lng: 126.98822 }}
+        style={{ width: '100%', height: '100%' }}
+        onClick={(_t, mouseEvent) => {
+          if (mouseEvent.latLng) {
+            setPosition({
+              lat: mouseEvent.latLng.getLat(),
+              lng: mouseEvent.latLng.getLng(),
+            })
+          }
+        }}
+      >
+        {position && <MapMarker position={position} />}
+        {markerInfo.length ? markerList : ''}
+      </Map>
+    </div>
   )
 }
 

@@ -3,17 +3,22 @@
 .container {
   display: flex;
   flex-direction: column;
+  padding: 10px;
 
   li {
-    padding: 5px 3px;
+    padding: 5px 0;
     cursor: pointer;
 
     .trackInfo {
       display: flex;
       flex-direction: row;
 
+      img {
+        border-radius: 10px;
+      }
+
       .detail {
-        padding-left: 5px;
+        padding-left: 10px;
         .title {
           font-size: 20px;
           font-weight: 500;
