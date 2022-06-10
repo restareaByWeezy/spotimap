@@ -35,7 +35,7 @@ const List = ({ tracks }: Props) => {
           onClick={handleClick}
           tabIndex={0}
         >
-          <img className={styles.img} src={`${track.album.images[2].url}`} alt='img' />
+          <img src={`${track.album.images[2].url}`} alt='img' />
           <div className={styles.detail}>
             <p className={styles.title}>{track.artists[0].name}</p>
             <p className={styles.trackName}>{track.name}</p>
