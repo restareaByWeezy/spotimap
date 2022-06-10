@@ -21,7 +21,7 @@ https://spotimap.vercel.app/
 
 ## 실행 화면과 기능
 
-![ezgif-5-98129998e3](https://user-images.githubusercontent.com/64529155/172035641-2c24c0f4-2d24-4900-a255-b0bd159c7577.gif)
+![ezgif-2-d7b0eb1131](https://user-images.githubusercontent.com/64529155/173087860-bd2dc15e-d917-42ae-81ac-d744435fe30b.gif)
 
 * 사용자에게 spotify 로그인을 요구하지 않게 Client Credentials Flow를 이용
 -> 참고: [Client Credentials Flow | Spotify for Developers](https://developer.spotify.com/documentation/general/guides/authorization/client-credentials/)
