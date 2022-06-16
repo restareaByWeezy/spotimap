@@ -1,5 +1,13 @@
 import { atom } from 'recoil'
 import store from 'store'
+import Cookies from 'universal-cookie'
+
+const cookies = new Cookies()
+
+export const tokenAtom = atom({
+  key: '#token',
+  default: '',
+})
 
 export const trackDataAtom = atom({
   key: '#trackData',

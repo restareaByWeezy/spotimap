@@ -6,16 +6,14 @@
   padding: 50px;
 }
 
-> div > div > div img {
-  border-radius: 100px;
-}
-
 .markerContainer {
   display: flex;
   justify-content: flex-start;
   padding: 5px;
   background-color: colors.$WHITE;
   color: colors.$GRAY2;
+  border-radius: 10px;
+
   .img {
     width: 45px;
     height: 45px;

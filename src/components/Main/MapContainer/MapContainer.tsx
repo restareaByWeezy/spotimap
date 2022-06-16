@@ -3,13 +3,14 @@ import store from 'store'
 import { useRecoilState } from 'recoil'
 import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk'
 
-import { markerInfoAtom, positionAtom } from 'states/atom'
+import { markerInfoAtom, playUriAtom, positionAtom } from 'states/atom'
 
 import { Trash } from 'assets/svgs'
 
 import styles from './MapContainer.module.scss'
 
 const MapContainer = () => {
+  const [, setPlayUri] = useRecoilState(playUriAtom)
   const [position, setPosition] = useRecoilState(positionAtom)
   const [markerInfo, setMarkerInfo] = useRecoilState(markerInfoAtom)
   const [isOpen, setIsOpen] = useState(-1)
@@ -39,6 +40,7 @@ const MapContainer = () => {
           }}
           onClick={() => {
             isOpen === index ? setIsOpen(-1) : setIsOpen(index)
+            info.uri && setPlayUri(info.uri)
           }}
         >
           {isOpen === index && (
