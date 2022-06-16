@@ -1,6 +1,6 @@
 module.exports = {
   types: [
-    { value: '🏗️ WIP', name: '🏗️ WIP:\tWork in progress' },
+    { value: '🏗️ WIP', name: '🏗️  WIP:\tWork in progress' },
     { value: '✨ Feat', name: '✨ Feat:\tAdd a new feature' },
     { value: '🐛 Modify', name: '🐛 Fix:\tModify production, UI,UX code' },
     { value: '📝 Docs', name: '📝 Docs:\tAdd or update documentation' },
