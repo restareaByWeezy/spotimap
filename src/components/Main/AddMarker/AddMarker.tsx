@@ -5,6 +5,7 @@ import { positionAtom, trackInfoAtom, markerInfoAtom } from 'states/atom'
 
 import styles from './AddMarker.module.scss'
 import { useEffect, useState } from 'react'
+import Button from 'components/_common/Button/Button'
 
 const AddMarker = () => {
   const position = useRecoilValue(positionAtom)
@@ -37,9 +38,7 @@ const AddMarker = () => {
           {!hasTrack && <p>Select your Song</p>}
           {!hasLocation && <p>Specify your place</p>}
         </div>
-        <button type='button' onClick={handleClick}>
-          Add Marker
-        </button>
+        <Button id='id' text='Add Marker' onClick={handleClick} />
       </div>
     </div>
   )

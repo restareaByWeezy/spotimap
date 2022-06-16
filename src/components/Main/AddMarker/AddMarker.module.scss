@@ -50,18 +50,10 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 100px;
-      height: 30px;
       margin-left: auto;
-      padding: 2px 5px;
-      border-radius: 10px;
-      background-color: colors.$SPINK;
-      color: colors.$GRAY2;
-      box-sizing: content-box;
-      font-weight: bold;
-    }
-    button:hover {
-      background-color: colors.$SDEEPPINK;
     }
   }
+}
+#id {
+  background-color: red;
 }

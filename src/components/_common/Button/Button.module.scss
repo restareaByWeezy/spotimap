@@ -1,0 +1,16 @@
+@use '/src/styles/constants/colors';
+
+.button {
+  width: fit-content;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border-radius: 10px;
+  //   background-color: colors.$SPINK;
+  color: colors.$GRAY2;
+  box-sizing: content-box;
+  font-weight: bold;
+  &:hover {
+    background-color: colors.$SDEEPPINK;
+  }
+}
