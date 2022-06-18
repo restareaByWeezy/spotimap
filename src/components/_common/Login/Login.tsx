@@ -16,22 +16,22 @@ const scopes = ['user-read-currently-playing', 'user-read-playback-state', 'stre
 const Login = () => {
   const [token, setToken] = useRecoilState(tokenAtom)
 
-  const handleLogout = () => {
-    cookies.remove('token')
-    setToken('')
-  }
+  // const handleLogout = () => {
+  //   cookies.remove('token')
+  //   setToken('')
+  // }
 
-  useEffect(() => {
-    const localHash = window.location.hash
-    const localToken = localHash.substring(1).split('&')[0].split('=')[1]
-    if (!token && localHash) {
-      window.location.hash = ''
-      setToken(localToken)
-      cookies.set('token', localToken)
-    }
+  // useEffect(() => {
+  //   const localHash = window.location.hash
+  //   const localToken = localHash.substring(1).split('&')[0].split('=')[1]
+  //   if (!token && localHash) {
+  //     window.location.hash = ''
+  //     setToken(localToken)
+  //     cookies.set('token', localToken)
+  //   }
 
-    localToken && setToken(localToken)
-  }, [setToken, token])
+  //   localToken && setToken(localToken)
+  // }, [setToken, token])
 
   return token === '' ? (
     <a
@@ -41,7 +41,7 @@ const Login = () => {
       Login to Spotify
     </a>
   ) : (
-    <button type='button' className={cx(styles.logout, styles.button)} onClick={handleLogout}>
+    <button type='button' className={cx(styles.logout, styles.button)}>
       Logout
     </button>
   )

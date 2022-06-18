@@ -1,38 +1,16 @@
 /* eslint-disable object-shorthand */
-import { cx } from 'styles'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 import styles from './Button.module.scss'
 
-interface IButtonProp {
-  id: string
-  text: string
-  onClick: () => void
-  color?: string
-  bgColor?: string
-  absolute?: boolean
-  top?: string
-  left?: string
-  right?: string
-  bottom?: string
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode
 }
 
-const Button = ({ id, text, onClick, color, bgColor, absolute, top, left, right, bottom }: IButtonProp) => {
+const Button = (props: Props) => {
+  const { children, className } = props
   return (
-    <button
-      type='button'
-      onClick={onClick}
-      id={id}
-      className={cx(styles.button)}
-      style={{
-        backgroundColor: bgColor,
-        color: color,
-        position: absolute ? 'absolute' : 'static',
-        top: top,
-        left: left,
-        right: right,
-        bottom: bottom,
-      }}
-    >
-      {text}
+    <button type='button' {...props} className={`${styles.button} ${className && className}`}>
+      {children}
     </button>
   )
 }
